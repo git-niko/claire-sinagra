@@ -1,0 +1,676 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Anicons Regular';
+    src: url('AniconsGX.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+/*  Styles specific to Claire Sinagra website - For educational purposes only
+    Author: Nicole Peterson
+    Date: 4/25/2022
+*/
+
+/* CSS Reset
+======================================================
+	http://meyerweb.com/eric/tools/css/reset/ 
+	v2.0 | 20110126
+	License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers
+======================================================
+*/
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Global | Mobile Styles
+======================================================
+*/
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+:root {
+	--apple: #d74452;
+	--teal: #2d838d;
+	--beige: #dad3b7;
+	--orange: #db9f34;
+	--dark-orange: #db8e36;
+	--dark-gray: #141414;
+	--light-gray: #ededed;
+	--white: #fff;
+	--trans-apple: hsla(354, 64%, 55%, 0.2);
+	--trans-teal: hsla(186, 51%, 36%, 0.2);
+	--trans-beige: hsla(48, 32%, 78%, 0.2);
+	--box-shadow: 0.735rem 0.375rem 0.625rem var(--dark-gray);
+	--drop-shadow: drop-shadow(0 0 0.3rem var(--dark-gray));
+	--body-font: 'Comfortaa', Helvetica, sans-serif;
+	font-size: 18px;
+}
+body {
+	margin: 0 auto;
+	line-height: 1.5;
+	font-family: var(--body-font);
+	color: var(--dark-gray);
+	background-color: var(--light-gray);
+}
+section {
+	padding: 2rem 1rem;
+}
+h1 {
+	justify-self: start;
+	font-size: 1.6rem;
+	font-weight: 700;
+	padding-left: 1rem;
+}
+h2 {
+	font-size: 1.5rem;
+}
+h3 {
+	font-size: 1.4rem;
+}
+h2, h3 {
+	font-weight: 700;
+	text-align: center;
+}
+h1, h2, h3, p, address, time {
+	cursor: default;
+}
+p {
+	max-width: 55ch;
+	margin: 0 auto;
+	letter-spacing: 0.5px;
+}
+a {
+	display: block;
+	text-decoration: none;
+	color: var(--dark-gray);
+	border: 4px solid transparent;
+}
+a:visited {
+	color: var(--dark-gray);
+}
+ul {
+	width: 100%;
+}
+picture, img {
+	display: block;
+}
+picture {
+	width: 90%;
+}
+img {
+	width: 100%;
+	height: auto;
+}
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+header, #about, #books li, #events ul, #events li, form, footer > div, #socialMedia {
+	display: grid;
+	justify-items: center;
+}
+#events ul {
+	gap: 4rem 0;
+}
+#events li {
+	gap: 1rem;
+}
+#books h3, #events h3 {
+	padding: 0.5rem 1rem;
+	border-left: 6px solid var(--teal);
+	border-right: 6px solid var(--teal);
+}
+#newsletter h2, #socialMedia h2 {
+	font-size: 1.3rem;
+}
+#skip {
+    position:absolute;
+	padding: 0.5rem;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+#skip:focus {
+    position: static;
+	display: inline-block;
+	text-decoration: underline;
+	color: var(--dark-gray);
+	font-weight: 700;
+	margin: 0.25rem;
+    width: auto;
+    height: auto;
+}
+[type="submit"]:focus, #events a:focus, #booksList a:focus, #eventsList a:focus, #legalese a:focus, #menuToggle a:focus {
+	border: 4px solid var(--dark-orange);
+}
+:focus {
+	border: 4px solid var(--dark-orange);
+}
+
+/* Header
+======================================================
+*/
+header {
+	grid-template-columns: 3fr 1fr;
+	align-items: center;
+}
+nav {
+	width: 100%;
+}
+#menuToggle, #menuToggle input, #menuToggle label {
+	display: block;
+}
+#menuToggle {
+	position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#menuToggle input {
+	position: absolute;
+	top: 12px;
+	right: 16px;
+	width: 50px;
+	height: 50px;
+    margin: 0;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 4;
+}
+#menuToggle label {
+	position: relative;
+	z-index: 3;
+    text-align: right;
+	margin-right: 16px;
+}
+#hamburgerIcon {
+	font-family: "Anicons Regular", sans-serif;
+	font-size: 50px;
+	font-variation-settings: "TIME" 1;
+	color: var(--teal);
+    transition: font-variation-settings 0.4s ease;
+}
+#menuToggle ul {
+    position: absolute;
+	top: 0;
+	right: 100vw;
+	width: 100vw;
+	z-index: 2;
+    text-align: center;
+    background-color: var(--beige);
+}
+#menuToggle ul a {
+	font-size: 1.3rem;
+	font-weight: 700;
+	padding: 1rem;
+}
+#menuToggle input:checked ~ ul {
+    right: 0;
+	padding: 4rem 0;
+    width: 100vw;
+}
+#menuToggle input:checked + label span {
+	color: var(--dark-gray);
+	font-variation-settings: "TIME" 100;
+}
+
+/* Section: About
+======================================================
+*/
+#about {
+	position: relative;
+	background-image: url(images/hero-small.jpg);
+	background-color: var(--beige);
+	background-position: 100% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-top: 2px solid var(--dark-gray);
+}
+#about::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: hsla(0, 0%, 100%, 0.65);
+	z-index: 0;
+}
+#about > * {
+	z-index: 1;
+}
+picture {
+	margin: 0 auto 2rem auto;
+}
+#about img {
+	max-width: 375px;
+    padding: 1rem;
+    margin: 0 auto;
+    box-shadow: var(--box-shadow);
+    border: 5px solid #2e2e2e;
+    border-radius: 2px;
+}
+#about p {
+	font-size: 1.1rem;
+	font-weight: 700;
+	max-width: 53ch;
+}
+
+/* Section: Books
+======================================================
+*/
+#books > p {
+	margin-bottom: 3rem;
+}
+#books ul {
+	max-width: calc(400px - 2rem);
+    margin: 0 auto;
+}
+#books li {
+	gap: 1rem;
+}
+#books li:not(:last-child) {
+	margin: 0 0 2.5rem 0;
+}
+#books time {
+	font-weight: 700;
+	font-size: 1.3rem;
+}
+
+/* Section: Events
+======================================================
+*/
+#events {
+	background-color: var(--trans-teal);
+}
+#events p {
+	margin-bottom: 2rem;
+}
+#events time {
+	display: inline-block;
+}
+address {
+	margin: 1rem 0 0;
+}
+address span {
+	font-weight: 700;
+}
+#events a {
+	text-align: center;
+	background-color: var(--beige);
+	border: 4px solid var(--dark-gray);
+	border-radius: 1rem;
+	font-size: 1.2rem;
+	font-weight: 700;
+	padding: 0.5rem;
+	width: 80%;
+}
+
+/* Section: Newsletter
+======================================================
+*/
+#newsletter {
+	padding: 2rem 0.5rem;
+}
+form {
+	justify-items: normal;
+	margin: 1.25rem auto 0 auto;
+	font-size: 1rem;
+	max-width: calc(500px - 1rem);
+}
+form input {
+	font-family: inherit;
+	font-size: inherit;
+    padding: 0.25rem 0.5rem;
+	margin-bottom: 1.5rem;
+    border: 4px solid var(--teal);
+	border-radius: 10px;
+	background-color: var(--white);
+    height: 3.5rem;
+	width: 100%;
+}
+form span {
+	font-size: 1.2rem;
+    font-family: aria;
+    color: var(--apple);
+}
+form label, form span, [type="submit"] {
+	font-weight: 700;
+}
+[type="submit"] {
+	margin: 1.5rem 0 0 0;
+	font-size: 1.3rem;
+	color: var(--dark-gray);
+	border: 4px solid var(--dark-gray);
+	background-color: var(--beige);
+}
+
+/* Footer
+======================================================
+*/
+footer {
+	background-color: var(--trans-teal);
+	text-align: center;
+}
+footer > div {
+	grid-column: 1 / -1;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem 0;
+	width: 100%;
+}
+#socialMedia {
+	grid-column: 1 / -1;
+	padding: 2rem 0 0;
+}
+#socialMedia h2 {
+	grid-column: 1 / -1;
+}
+#socialMedia p {
+	margin: 0.5rem 0 1.5rem;
+	grid-column: 1 / -1;
+}
+#socialMedia {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, -webkit-min-content);
+    grid-template-rows: repeat(3, min-content);
+	gap: 0 0.75rem;
+    max-width: 400px;
+}
+#socialMedia a {
+	padding-bottom: 0.5rem;
+}
+#socialMedia svg {
+	vertical-align: text-top;
+}
+#booksList, #eventsList {
+	padding: 0 0 0.5rem;
+}
+#booksList h2, #eventsList h2 {
+	display: inline-block;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 6px solid var(--white);
+}
+#booksList a, #eventsList a, #legalese a {
+	display: inline-block;
+	padding: 0.5rem 0;
+	border-bottom: 4px solid transparent;
+}
+#booksList a, #eventsList a {
+	font-size: 0.9rem;
+}
+#legalese {
+	grid-column: 1 / -1;
+	width: 100%;
+	background-color: var(--light-gray);
+	padding-top: 1rem;
+	font-size: 0.889rem;
+}
+#legalese p {
+	grid-column: 1 / -1;
+	margin-top: 0.5rem;
+}
+
+/* Media Queries
+======================================================
+*/
+@media (hover:hover){
+  
+    #menuToggle ul a:hover {
+		background-color: var(--teal);
+		color: var(--white);
+    }
+	#events a:hover {
+		-webkit-filter: var(--drop-shadow);
+		        filter: var(--drop-shadow);
+		color: var(--dark-gray);
+	}
+	[type="submit"]:hover {
+		-webkit-filter: var(--drop-shadow);
+		        filter: var(--drop-shadow);
+		color: var(--dark-gray);
+    }
+	#socialMedia a:hover {
+		border-bottom: 4px solid var(--apple);
+	}
+	#booksList a:hover, #eventsList a:hover {
+		border-bottom: 4px solid var(--apple);
+	}
+	#legalese a:hover {
+		border-bottom: 4px solid var(--apple);
+	}
+  }
+
+@media screen and (min-width: 700px) {
+	
+	header {
+		padding: 0 4%;
+	}
+	section {
+		padding: 3rem 1rem;
+	}
+	#menuToggle input, #menuToggle label {
+		display: none;
+	}
+	#menuToggle ul {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		position: static;
+		width: 100%;
+		background-color: var(--light-gray);
+	}
+	#menuToggle ul a {
+		color: var(--dark-gray);
+	}
+	#about {
+		grid-template-columns: auto auto;
+		gap: 1rem 2rem;
+		justify-content: center;
+		background-image: url(images/hero-medium.jpg);
+		background-position: left 100%;
+	}
+	picture {
+		grid-row: 1 / 3;
+		margin-bottom: 0;
+	}
+	#about h2 {
+		align-self: end;
+		font-size: 1.7rem;
+	}
+	#books ul {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: start;
+		gap: 1rem 3rem;
+		max-width: calc(800px - 2rem);
+	}
+	#events ul {
+		grid-template-columns: 1fr 1fr;
+		grid-column: 1 / -1;
+		max-width: calc(800px - 2rem);
+		margin: 0 auto;
+	}
+	#newsletter {
+		padding: 3rem 0.5rem;
+	}
+	form {
+		grid-template-columns: 1fr 1fr;
+		-moz-column-gap: 1rem;
+		     column-gap: 1rem;
+		max-width: calc(700px - 1rem);
+	}
+	[for="fName"] {
+		grid-column: 1 / 2;
+	}
+	[id="fName"] {
+		grid-column: 1 / 2;
+	}
+	[for="lName"] {
+		grid-column: 2 / -1;
+		grid-row: 1 / 2;
+	}
+	[id="lName"] {
+		grid-column: 2 / -1;
+	}
+	[for="email"] {
+		grid-column: 1 / -1;
+	}
+	[id="email"] {
+		grid-column: 1 / -1;
+	}
+	[type="submit"] {
+		grid-column: 2 / -1;
+	}
+	footer > div {
+		grid-template-columns: 1.5fr 1fr 1fr;
+	}
+	#socialMedia {
+		grid-column: 1 / 2;
+		padding: 3rem 0 0 2rem;
+	}
+	#socialMedia p {
+		padding-left: 1rem;
+	}
+	#booksList, #eventsList {
+		padding: 3rem 0.5rem 2rem;
+	}
+	#booksList h2, #eventsList h2 {
+		padding: 0 0 0.5rem;
+	}
+	#booksList a, #eventsList a {
+		font-size: 0.9rem;
+	}
+	#legalese {
+		padding-top: 2rem;
+	}
+  }
+
+@media screen and (min-width: 1200px) {
+
+	#events ul {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		max-width: 1300px;
+	}
+	form {
+		grid-template-columns: 1fr 1fr 1fr;
+		max-width: 1250px;
+	}
+	[for="lName"] {
+		grid-column: 2 / 3;
+	}
+	[id="lName"] {
+		grid-column: 2 / 3;
+	}
+	[for="email"] {
+		grid-column: 3 / -1;
+		grid-row: 1 / 2;
+	}
+	[id="email"] {
+		grid-column: 3 / -1;
+	}
+	[type="submit"] {
+		grid-column: 3 / -1;
+		width: 50%;
+		justify-self: end;
+	}
+	footer > div {
+		grid-template-columns: 2fr 1fr 1fr 2fr;
+		padding: 3rem 2rem;
+		max-width: 1500px;
+		margin: 0 auto;
+	}
+	#socialMedia, #booksList, #eventsList, #legalese {
+		padding: 0;
+	}
+	#socialMedia p {
+		padding-left: 0;
+	}
+	#booksList a, #eventsList a {
+		font-size: 1rem;
+	}
+	#legalese {
+		grid-column: 4 / -1;
+		background-color: transparent;
+		height: -webkit-min-content;
+		height: -moz-min-content;
+		height: min-content;
+		align-self: end;
+	}
+}
+
+@media screen and (min-width: 1251px) {
+
+	header {
+		max-width: 1650px;
+		margin: 0 auto;
+	}
+	:root {
+		font-size: 19px;
+	}
+	h3 {
+		font-size: 1.3rem;
+	}
+	#books ul {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		gap: 2rem;
+		max-width: 1500px;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+	#about {
+		background-image: url(images/hero-large.jpg);
+	}
+}
